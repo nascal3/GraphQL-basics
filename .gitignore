@@ -1,0 +1,6 @@
+# IDE project files
+.vscode
+.idea
+*.iml
+out
+gen
