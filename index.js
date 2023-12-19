@@ -55,6 +55,15 @@ const resolvers = {
             db.games.push(game)
             return game
         },
+        updateGame(_, args) {
+            db.games = db.games.map((g) => {
+                if (g.id === args.id) {
+                    return {...g, ...args.edits}
+                }
+                return g
+            })
+            return db.games.find((g) => g.id === args.id)
+        },
         deleteGame(_, args) {
             db.games = db.games.filter((g) => g.id !== args.id)
             return db.games
